@@ -1,7 +1,33 @@
-/*you fill this in*/
+#welcomepage{
+	text-align: center;
+	background-color: #ededed;
+	font-family: Georgia;
+	color:white;
+	font-size: 40pt;
+}
+#description{
+	font-size: 20pt;
+	color:black;
+	padding-bottom: 20pt;
+}
+.all{
+	background-color: white;
+	padding-bottom: 40pt;
+	padding-top: 40pt;
+	margin-right: 50pt;
+	margin-left: 50pt;
+	margin-bottom: 50pt;
+	margin-top: 50pt;
+	font-family: sans-serif;
+}
+
 a {
 	text-align: center;
-	font-family: Georgia;
+	font-family: sans-serif;
+	background-color: aqua;
+	color:white;
+	padding:20pt;
+	margin-top: 30pt;
 }
 
 #allText{
@@ -14,34 +40,47 @@ a {
 	color: maroon;
 	margin-left: 270pt;
 	margin-right: 270pt;
+	margin-bottom: 40pt; 
 }
 
 body{
 	background-color: #ededed;
-	/* padding-left: 200pt; */
 	color: maroon;
-	font-family: Georgia;
+	font-family: sans-serif;
 	font-weight: heavier;
 
 
 }
-.instaimages{
-
+.instaimages {
 	text-align: center;
 	color:maroon;
 	font-family: Georgia;
-	padding-bottom: 100pt;
+	padding-bottom: 50pt;
 	display: block; 
-	margin-left: 170pt;
-	margin-right: 170pt; 
-	background-color: white;
-	margin-bottom: 40pt;
+	margin-left: 120pt;
+	margin-right: 120pt; 
+	/*margin-bottom: 40pt; */
 	margin-top: 40pt;
 }
-h1{
+.text{
+	background-color: #ededed;
 	text-align: center;
-	background-color: maroon;
-	color:white;
+	color:maroon;
+	padding-top:20pt;
+	padding-bottom: 20pt;
+	font-family: sans-serif;
+	font-style: italic;
+	font-weight:bolder;
+	font-size: 15pt;
+}
+h1{
+	text-align: left;
+	color:black;
+	padding-top: 40pt;
+	padding-bottom: 20pt;
+	font-size: 50pt;
+	padding-left: 179pt;
+	font-family: sans-serif;
 
 }
 #head{
@@ -50,13 +89,25 @@ h1{
 	padding-bottom: 20pt;
 	padding-top: 20pt;
 	background-color: maroon;
+	font-family: sans-serif;
 }
-.pics{
-	padding-top: 30pt;
-	/* padding-left: 30pt; */
-	padding-bottom: 30pt;
-	/*padding-right: 30pt; */
+
+#logheading{
+	background-color: maroon;
+	padding-left: 0;
+	text-align: center;
 }
-.instaimages text{
-	color:red;
+.results{
+	color:black;
+	font-size: 13pt;
+	font-style:normal;
+	padding-top: 10pt;
 }
+
+#average{
+	text-align: center;
+	font-size: 15pt;
+	padding-top: 20pt;
+
+}
+

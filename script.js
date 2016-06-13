@@ -2,6 +2,7 @@ var API_DOMAIN = "https://api.instagram.com/v1";
 var RECENT_MEDIA_PATH = "/users/self/media/recent";
 // what do you think a variable in all caps means?
 var imgCount=0;
+var totalScore = 0;
 
 $(document).ready(function() {
   var token = window.location.hash;
@@ -25,11 +26,13 @@ $(document).ready(function() {
 function handleResponse(response){
   imgCount= response.data.length;
   for (var i =0; i < response.data.length; i++) {
-      $(".instaimages").append("<img class=pics src='"+response.data[i].images.standard_resolution.url+"'/>");
-      $(".instaimages").append(response.data[i].caption.text);
+      $(".instaimages").append("<div class='image'> <img class=pics src='"+response.data[i].images.standard_resolution.url+"'/> </div>");
+      $(".instaimages").append("<div class='text' id='img"+i+"'>" + response.data[i].caption.text + "</div>");
+      feelings(response.data[i].caption.text, "img"+i); 
   };
 popularity(response);
 brevity(response);
+activeDays(response);
 }
 
                                 //egoscore
@@ -72,13 +75,17 @@ function popularity(response){
 
 
                                                     //active days
-
-      //function activeDays(response){
-
-      //}
-      // HOW DO YOU USE THE CREATED TIME KEY TO GET THE DAY OF THE WEEK AND NOT ONLT THE SPECIFIC DATE
-
-
+  function activeDays(response){
+  var days = [0, 0, 0, 0, 0, 0, 0];
+  var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  for (var i = 0; i < response.data.length; i++) {
+    var time = parseInt(response.data[i].created_time);
+    var date = new Date(time * 1000);
+    days[date.getDay()]++;
+  }
+  var mostActiveDay = week[(Math.max.apply(Math, days))];
+  $("#activeDays").append("The most common day to post a picture is on"+" "+mostActiveDay)
+}
 
                                                     //brevity
 
@@ -90,7 +97,7 @@ function popularity(response){
     }
   var averageCaption= (totalCaptionlength/response.data.length);
     $("#brevity").append("My average caption length is"+" "+averageCaption+" "+"words per image caption")
-    }
+}
 
                                                       //visibility thirst
   $.ajax({
@@ -116,40 +123,31 @@ function popularity(response){
                                                       //sentiments
 
 
-// ajax url
-// insert mashape api link 
-// loop through captions
-// for each caption assign a score
-
- /* $.ajax({
+  function feelings(text, id){
+  $.ajax({
   method: "GET",
-  url: "http://sentiment.vivekn.com/api/text/",
-  dataType: "jsonp",
-  success: sentiment, 
+  url: "https://twinword-sentiment-analysis.p.mashape.com/analyze/?text=" + text,
+  headers:{"X-Mashape-Key": "PbStp7XTqcmshozwb4sA09AZRaTEp1qKVYHjsnE0LcKWj66qWd",
+  "Accept": "application/json", },
+  success: function(response){
+    sentimentSuccess(response, id)
+  },
   error: function() {
   alert("there has been an error...")
- }
+  }
 });
-
-
-function sentiment(response){
-curl -X POST --include 'https://community-sentiment.p.mashape.com/text/' \
-  -H 'X-Mashape-Key: ixqpCJo9qnmshUTokmOnldxNq5Oep1NrCXTjsnlUR82ltVmWFf' \
-  -H 'Content-Type: application/x-www-form-urlencoded' \
-  -H 'Accept: application/json' \
-  -d 'txt= happy '
-      {
-        "result": {
-          "confidence": " 0",
-          "sentiment": "0 "
-        }
-      }
 }
-var textSentiment= "result"
-  $("#textSentiment").append("The positivity rating of this caption is"+" "+textSentiment)
-*/
+var sentimentCount=0
 
-
+function sentimentSuccess(data, id){
+  var confidenceScore = data.score;
+  var confidenceType = data.type;
+  totalScore += data.score;
+  sentimentCount++;
+  var averageScore = (totalScore/sentimentCount);
+  $("#"+id).append("<div class='results'> Sentiment: score("+confidenceScore+"), type:"+confidenceType+"</div>");
+  $("#average").html("My average positivity score is: "+averageScore);
+}
 
 
 
