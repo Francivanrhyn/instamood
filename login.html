@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Instamood | Login</title>
-  <!-- TODO: Include Bootstrap -->
-  <!-- TODO: Link your stylesheet -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 <body>
   <!-- Make sure to cd into this directory and run 
   'python -m SimpleHTTPServer' or 'python-m http.server' (whichever one works). -->
   <!-- Replace 'YOUR_CLIENT_ID_HERE' with the client ID you get from instagram.com/developer -->
   <!-- Once you do that, visit 0.0.0.0:8000 in Chrome -->
-  <a href="https://api.instagram.com/oauth/authorize/?client_id=YOUR_CLIENT_ID_HERE&redirect_uri=http://0.0.0.0:8000&response_type=token">Log in with Instagram</a>
+  <a href="https://api.instagram.com/oauth/authorize/?client_id=b5e048f165274862a0c4b7c1ec939488&redirect_uri=http://localhost:8000&response_type=token&scope=basic+likes+comments+public_content"><b>Log in with Instagram</b></a>
 </body>
 </html>

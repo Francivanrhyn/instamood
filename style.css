@@ -1,1 +1,62 @@
 /*you fill this in*/
+a {
+	text-align: center;
+	font-family: Georgia;
+}
+
+#allText{
+	text-align: center;
+	background-color: white;
+	font-family: serif;
+	text-align:center;
+	font-size: 20pt;
+	padding-top: 7pt;
+	color: maroon;
+	margin-left: 270pt;
+	margin-right: 270pt;
+}
+
+body{
+	background-color: #ededed;
+	/* padding-left: 200pt; */
+	color: maroon;
+	font-family: Georgia;
+	font-weight: heavier;
+
+
+}
+.instaimages{
+
+	text-align: center;
+	color:maroon;
+	font-family: Georgia;
+	padding-bottom: 100pt;
+	display: block; 
+	margin-left: 170pt;
+	margin-right: 170pt; 
+	background-color: white;
+	margin-bottom: 40pt;
+	margin-top: 40pt;
+}
+h1{
+	text-align: center;
+	background-color: maroon;
+	color:white;
+
+}
+#head{
+	color:white;
+	font-size:40pt;
+	padding-bottom: 20pt;
+	padding-top: 20pt;
+	background-color: maroon;
+}
+.pics{
+	padding-top: 30pt;
+	/* padding-left: 30pt; */
+	padding-bottom: 30pt;
+	/*padding-right: 30pt; */
+}
+.instaimages text{
+	color:red;
+}
